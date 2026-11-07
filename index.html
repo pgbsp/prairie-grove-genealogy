@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#e9e2d2">
+  <title>The Borden Family | Prairie Grove</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <p class="eyebrow">Prairie Grove Battlefield State Park</p>
+      <h1>The Borden Family</h1>
+      <p class="header-subtitle">A family history connected to the Battle of Prairie Grove</p>
+    </div>
+  </header>
+
+  <nav class="main-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a class="nav-link active" href="#story" data-section="story">The Story</a>
+      <a class="nav-link" href="#evidence" data-section="evidence">Evidence</a>
+      <a class="nav-link" href="#family" data-section="family">Family Connections</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- THE STORY -->
+    <section id="story" class="page-section intro-section">
+      <div class="section-heading">
+        <p class="eyebrow">An Arkansas family in wartime</p>
+        <h2>Discover the Borden family story</h2>
+      </div>
+
+      <div class="intro-copy">
+        <p class="lead">
+          The Battle of Prairie Grove was fought on December 7, 1862.
+          For families living in the area, the battle was not simply a
+          military event. It unfolded around their homes, farms, and communities.
+        </p>
+
+        <p>
+          Archibald Borden and his family were among the civilians whose
+          lives were affected by the conflict. Historical records,
+          family recollections, and local accounts offer pieces of their story.
+          Your task is to examine the evidence and identify the documented
+          family connections.
+        </p>
+
+        <div class="interpretive-note">
+          <strong>How to investigate</strong>
+          <p>
+            Begin by examining the historical evidence. Open each record,
+            study the document image, and look for names and relationships.
+            Then use the family cards to build the family group.
+            A shared surname does not necessarily mean two people are related.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVIDENCE -->
+    <section id="evidence" class="page-section" hidden>
+      <div class="section-heading">
+        <p class="eyebrow">Explore the historical record</p>
+        <h2>Evidence</h2>
+        <p class="section-intro">
+          The following records offer clues about the Borden family and
+          the people who experienced the Battle of Prairie Grove.
+          Select a record to examine its document image.
+        </p>
+      </div>
+
+      <div class="evidence-intro">
+        <p>
+          <strong>Reading the evidence:</strong>
+          Look closely at names, dates, family relationships, and differences
+          between records. The short descriptions are only introductions.
+          The documents themselves contain the details needed for this investigation.
+        </p>
+      </div>
+
+      <div id="evidence-list" class="evidence-list"></div>
+
+      <p class="source-caution">
+        Historical records can be incomplete, inconsistent, or difficult to interpret.
+        Consider what each source establishes and what it leaves unanswered.
+      </p>
+    </section>
+
+    <!-- FAMILY CONNECTIONS -->
+    <section id="family" class="page-section" hidden>
+      <div class="section-heading">
+        <p class="eyebrow">Build the family group</p>
+        <h2>Family Connections</h2>
+        <p class="section-intro">
+          Use the evidence to place each person in the appropriate area.
+          The family group is based on the relationships identified in the
+          available family record. Children are not assigned to individual
+          marriages because the source does not make those connections clear.
+        </p>
+      </div>
+
+      <div class="activity-instructions">
+        <strong>Instructions</strong>
+        <p>
+          Select a name card, then select a placement area. On a computer,
+          you can also drag and drop cards. Select a placed card to return it
+          to the list.
+        </p>
+      </div>
+
+      <div class="family-layout">
+        <aside class="people-panel">
+          <div class="panel-heading">
+            <h3>People to place</h3>
+            <span id="remaining-count" class="count-label"></span>
+          </div>
+
+          <div id="people-bank" class="people-bank" aria-label="People to place"></div>
+
+          <button id="reset-button" class="secondary-button" type="button">
+            Reset activity
+          </button>
+        </aside>
+
+        <div class="family-board">
+          <div class="board-title">
+            <h3>Archibald Borden's family group</h3>
+            <p>Use the evidence to determine each person's place.</p>
+          </div>
+
+          <div class="family-zone central-zone">
+            <div class="zone-label">
+              <span class="zone-number">1</span>
+              <div>
+                <h4>Central figure</h4>
+                <p>The person at the center of this family investigation</p>
+              </div>
+            </div>
+
+            <div class="drop-area" data-zone="central" tabindex="0" aria-label="Placement area: central figure">
+              <span class="empty-hint">Place the central figure here</span>
+            </div>
+          </div>
+
+          <div class="family-row">
+            <div class="family-zone">
+              <div class="zone-label">
+                <span class="zone-number">2</span>
+                <div>
+                  <h4>Spouses</h4>
+                  <p>People identified as Archibald's spouses</p>
+                </div>
+              </div>
+
+              <div class="drop-area multi-drop" data-zone="spouses" tabindex="0" aria-label="Placement area: spouses">
+                <span class="empty-hint">Place spouses here</span>
+              </div>
+            </div>
+
+            <div class="family-zone">
+              <div class="zone-label">
+                <span class="zone-number">3</span>
+                <div>
+                  <h4>Children</h4>
+                  <p>Children named in the family record</p>
+                </div>
+              </div>
+
+              <div class="drop-area multi-drop" data-zone="children" tabindex="0" aria-label="Placement area: children">
+                <span class="empty-hint">Place children here</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="family-zone no-relation-zone">
+            <div class="zone-label">
+              <span class="zone-number">4</span>
+              <div>
+                <h4>No relation</h4>
+                <p>A person with the Borden surname who belongs to a different documented family</p>
+              </div>
+            </div>
+
+            <div class="drop-area multi-drop" data-zone="unrelated" tabindex="0" aria-label="Placement area: no relation">
+              <span class="empty-hint">Place the unrelated person here</span>
+            </div>
+          </div>
+
+          <div id="activity-feedback" class="activity-feedback" aria-live="polite">
+            Examine the evidence and begin placing the names.
+          </div>
+
+          <button id="check-button" class="primary-button" type="button">
+            Check my family group
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Prairie Grove Battlefield State Park</p>
+    <p class="footer-small">
+      Historical interpretation based on cited records and published accounts.
+    </p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,751 @@
+/* =========================================
+   PRAIRIE GROVE INTERPRETIVE DESIGN SYSTEM
+   National Park Service / Arkansas State Parks
+========================================= */
+
+:root {
+  --parchment: #e9e2d2;
+  --paper: #f7f3e9;
+  --paper-deep: #ded3bd;
+  --earth: #493b2d;
+  --earth-soft: #6d5b47;
+  --sage: #68785f;
+  --sage-dark: #4e6049;
+  --prairie: #c6ad84;
+  --red: #914c40;
+  --ink: #29251f;
+  --muted: #71685d;
+  --line: #c9bda8;
+  --shadow: 0 5px 18px rgba(57, 45, 31, .09);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: "Source Sans 3", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+button {
+  font: inherit;
+}
+
+/* HEADER */
+
+.site-header {
+  color: var(--paper);
+  background: var(--earth);
+  border-bottom: 7px solid var(--sage);
+  padding: 34px 20px 30px;
+  text-align: center;
+}
+
+.header-inner {
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--sage);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.site-header .eyebrow {
+  color: #d8c7a7;
+}
+
+.site-header h1,
+h2,
+h3,
+h4 {
+  font-family: "Libre Baskerville", Georgia, serif;
+  line-height: 1.25;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.3rem);
+  font-weight: 400;
+}
+
+.header-subtitle {
+  margin: 10px 0 0;
+  color: #e3d9c8;
+}
+
+/* NAVIGATION */
+
+.main-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 2px 8px rgba(57, 45, 31, .06);
+}
+
+.nav-inner {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.nav-link {
+  display: inline-block;
+  padding: 14px 20px 12px;
+  color: var(--earth);
+  border-bottom: 3px solid transparent;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--red);
+  border-bottom-color: var(--red);
+}
+
+/* GENERAL PAGE LAYOUT */
+
+main {
+  max-width: 1180px;
+  min-height: 65vh;
+  margin: 0 auto;
+  padding: 34px 22px 60px;
+}
+
+.page-section {
+  animation: appear .2s ease-out;
+}
+
+.page-section[hidden] {
+  display: none;
+}
+
+@keyframes appear {
+  from {
+    opacity: .5;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.section-heading {
+  max-width: 850px;
+  margin: 0 auto 28px;
+  text-align: center;
+}
+
+.section-heading h2 {
+  margin: 0 0 12px;
+  color: var(--earth);
+  font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+
+.section-intro {
+  max-width: 760px;
+  margin: 0 auto;
+  color: var(--muted);
+}
+
+/* STORY SECTION */
+
+.intro-section {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.intro-copy {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: clamp(22px, 5vw, 42px);
+  box-shadow: var(--shadow);
+}
+
+.intro-copy p {
+  margin-top: 0;
+}
+
+.lead {
+  color: var(--earth);
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 1.18rem;
+  line-height: 1.7;
+}
+
+.interpretive-note {
+  margin-top: 28px;
+  padding: 18px 22px;
+  background: #e5e8dc;
+  border-left: 5px solid var(--sage);
+}
+
+.interpretive-note strong {
+  color: var(--sage-dark);
+}
+
+.interpretive-note p {
+  margin: 5px 0 0;
+}
+
+/* EVIDENCE SECTION */
+
+.evidence-intro {
+  max-width: 900px;
+  margin: 0 auto 24px;
+  padding: 16px 20px;
+  background: #e5e8dc;
+  border-left: 5px solid var(--sage);
+}
+
+.evidence-intro p {
+  margin: 0;
+}
+
+.evidence-list {
+  display: grid;
+  gap: 14px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Each evidence item is an expandable archival record */
+
+.evidence-item {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--prairie);
+  box-shadow: var(--shadow);
+}
+
+.evidence-item[open] {
+  border-left-color: var(--sage);
+}
+
+.evidence-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  width: 100%;
+  padding: 20px 22px;
+  color: var(--earth);
+  text-align: left;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.evidence-toggle:hover {
+  background: #f0eadc;
+}
+
+.evidence-toggle:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: -3px;
+}
+
+.evidence-heading {
+  display: block;
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 1.08rem;
+  font-weight: 700;
+}
+
+.evidence-summary {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: .96rem;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.evidence-toggle-icon {
+  flex: 0 0 30px;
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  color: white;
+  background: var(--sage-dark);
+  border-radius: 50%;
+  font-size: 1.2rem;
+  line-height: 1;
+  transition: transform .2s ease;
+}
+
+.evidence-item[open] .evidence-toggle-icon {
+  transform: rotate(45deg);
+}
+
+.evidence-content {
+  padding: 0 22px 24px;
+  border-top: 1px solid var(--line);
+}
+
+.document-caption {
+  margin: 16px 0 12px;
+  color: var(--earth-soft);
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: .92rem;
+  font-style: italic;
+}
+
+/* Document image display */
+
+.document-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 260px;
+  padding: 18px;
+  background: #e5ddce;
+  border: 1px solid #c9bda8;
+  background-image:
+    linear-gradient(rgba(255,255,255,.15), rgba(255,255,255,.15));
+}
+
+.document-image {
+  display: block;
+  max-width: 100%;
+  max-height: 650px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 0 3px 12px rgba(45, 35, 24, .18);
+  background: #fffdf7;
+}
+
+.image-placeholder {
+  max-width: 440px;
+  padding: 28px;
+  color: var(--earth-soft);
+  text-align: center;
+  background: var(--paper);
+  border: 1px dashed #b7a88e;
+}
+
+.image-placeholder strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--earth);
+  font-family: "Libre Baskerville", Georgia, serif;
+}
+
+.image-placeholder p {
+  margin: 0;
+  font-size: .9rem;
+}
+
+.document-source {
+  margin: 14px 0 0;
+  padding-top: 12px;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  font-size: .9rem;
+}
+
+.document-source strong {
+  color: var(--earth);
+}
+
+.source-caution {
+  max-width: 1000px;
+  margin: 22px auto 0;
+  padding: 14px 18px;
+  background: #f0e8d9;
+  border-left: 4px solid var(--red);
+  color: var(--earth-soft);
+}
+
+/* FAMILY ACTIVITY */
+
+.activity-instructions {
+  max-width: 1000px;
+  margin: 0 auto 24px;
+  padding: 16px 20px;
+  background: #e5e8dc;
+  border-left: 5px solid var(--sage);
+}
+
+.activity-instructions p {
+  margin: 3px 0 0;
+}
+
+.family-layout {
+  display: grid;
+  grid-template-columns: minmax(230px, .78fr) minmax(0, 2fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.people-panel,
+.family-board {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.people-panel {
+  padding: 20px;
+}
+
+.panel-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 12px;
+}
+
+.panel-heading h3,
+.board-title h3 {
+  margin: 0;
+  color: var(--earth);
+  font-size: 1.15rem;
+}
+
+.count-label {
+  color: var(--muted);
+  font-size: .86rem;
+  white-space: nowrap;
+}
+
+.people-bank {
+  display: grid;
+  gap: 9px;
+  padding: 16px 0;
+  min-height: 120px;
+}
+
+.person-card {
+  display: block;
+  width: 100%;
+  padding: 11px 13px;
+  color: var(--earth);
+  text-align: left;
+  background: #fffdf7;
+  border: 1px solid #cbbda6;
+  border-left: 4px solid var(--prairie);
+  border-radius: 2px;
+  cursor: grab;
+  transition: background .15s, border-color .15s;
+}
+
+.person-card:hover {
+  background: #f0eadc;
+  border-color: var(--sage);
+}
+
+.person-card:focus-visible,
+button:focus-visible,
+.drop-area:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 2px;
+}
+
+.person-card.selected {
+  background: #e5e8dc;
+  border-color: var(--sage-dark);
+  border-left-color: var(--sage-dark);
+}
+
+.person-card.placed {
+  width: auto;
+  display: inline-flex;
+  margin: 3px;
+  cursor: pointer;
+}
+
+.person-card .person-name {
+  display: block;
+  font-weight: 700;
+}
+
+.person-card .person-detail {
+  display: block;
+  color: var(--muted);
+  font-size: .86rem;
+}
+
+.secondary-button,
+.primary-button {
+  border: 0;
+  padding: 11px 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.secondary-button {
+  width: 100%;
+  color: var(--earth);
+  background: #e5ddce;
+  border: 1px solid var(--line);
+}
+
+.secondary-button:hover {
+  background: #dcd0bc;
+}
+
+.primary-button {
+  display: block;
+  margin: 20px auto 0;
+  color: white;
+  background: var(--sage-dark);
+}
+
+.primary-button:hover {
+  background: #3f503b;
+}
+
+.family-board {
+  padding: clamp(16px, 3vw, 28px);
+}
+
+.board-title {
+  padding-bottom: 18px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+}
+
+.board-title p {
+  margin: 5px 0 0;
+  color: var(--muted);
+}
+
+.family-zone {
+  min-width: 0;
+  padding: 16px;
+  margin-bottom: 16px;
+  background: #f1ecdf;
+  border: 1px solid #d6cbb8;
+}
+
+.central-zone {
+  max-width: 620px;
+  margin: 0 auto 18px;
+}
+
+.zone-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  margin-bottom: 12px;
+}
+
+.zone-number {
+  display: grid;
+  flex: 0 0 27px;
+  width: 27px;
+  height: 27px;
+  place-items: center;
+  color: white;
+  background: var(--sage-dark);
+  border-radius: 50%;
+  font-size: .86rem;
+  font-weight: 700;
+}
+
+.zone-label h4 {
+  margin: 0;
+  color: var(--earth);
+  font-size: 1rem;
+}
+
+.zone-label p {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.35;
+}
+
+.drop-area {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  min-height: 72px;
+  padding: 8px;
+  background: rgba(255,253,247,.75);
+  border: 2px dashed #b7a88e;
+  border-radius: 2px;
+  transition: background .15s, border-color .15s;
+}
+
+.drop-area.drag-over {
+  background: #e3e9dc;
+  border-color: var(--sage-dark);
+}
+
+.drop-area .empty-hint {
+  color: #8a8072;
+  font-size: .92rem;
+  font-style: italic;
+  text-align: center;
+}
+
+.family-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.no-relation-zone {
+  background: #eee7db;
+  border-top: 3px solid var(--red);
+}
+
+.no-relation-zone .zone-number {
+  background: var(--red);
+}
+
+.no-relation-zone .drop-area {
+  border-color: #c59b90;
+}
+
+.activity-feedback {
+  margin-top: 18px;
+  padding: 13px 16px;
+  background: #eee8dc;
+  color: var(--earth);
+  text-align: center;
+}
+
+.activity-feedback.success {
+  background: #e3e9dc;
+  color: #344b32;
+  border-left: 4px solid var(--sage-dark);
+}
+
+.activity-feedback.try-again {
+  background: #f1e4df;
+  color: #773d34;
+  border-left: 4px solid var(--red);
+}
+
+/* FOOTER */
+
+.site-footer {
+  padding: 25px 18px;
+  color: #eee4d2;
+  background: var(--earth);
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.footer-small {
+  margin-top: 4px !important;
+  color: #cfc2ad;
+  font-size: .88rem;
+}
+
+/* MOBILE */
+
+@media (max-width: 760px) {
+  body {
+    font-size: 16px;
+  }
+
+  .nav-inner {
+    justify-content: stretch;
+  }
+
+  .nav-link {
+    flex: 1;
+    padding: 12px 7px 10px;
+    text-align: center;
+    font-size: .94rem;
+  }
+
+  main {
+    padding: 26px 14px 42px;
+  }
+
+  .family-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .people-panel {
+    order: 0;
+  }
+
+  .family-board {
+    order: 1;
+  }
+
+  .people-bank {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .family-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .evidence-toggle {
+    padding: 17px;
+  }
+
+  .evidence-content {
+    padding: 0 15px 18px;
+  }
+
+  .document-frame {
+    min-height: 180px;
+    padding: 10px;
+  }
+
+  .document-image {
+    max-height: 500px;
+  }
+}
+
+@media (max-width: 420px) {
+  .people-bank {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-link {
+    font-size: .87rem;
+  }
+
+  .person-card.placed {
+    width: calc(100% - 6px);
+    justify-content: center;
+  }
+
+  .evidence-heading {
+    font-size: .98rem;
+  }
+
+  .evidence-summary {
+    font-size: .9rem;
+  }
+}
